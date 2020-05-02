@@ -1,0 +1,21 @@
+/* You are here!
+Your runtime beats 100.00 % of java submissions.
+
+254 / 254 test cases passed.
+Runtime: 0 ms
+Memory Usage: 37.5 MB */
+
+class Solution {
+    public int numJewelsInStones(String J, String S) {
+        int n=J.length();
+        int m=S.length();
+        int count=0;
+        for(int i=0;i<m;i++){
+            for(int j=0;j<n;j++){
+                if(J.charAt(j)==S.charAt(i))
+                    count++;
+            }
+        }
+        return count;
+    }
+}
