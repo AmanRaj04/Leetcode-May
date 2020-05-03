@@ -1,0 +1,30 @@
+/* You are here!
+Your runtime beats 79 % of java submissions.
+
+126 / 126 test cases passed.
+Runtime: 3 ms
+Memory Usage: 39.2 MB */
+
+class Solution {
+    public boolean canConstruct(String ransomNote, String magazine) {
+        int count=0; int boolean f=true;
+        int[] c= new int[26]; int[] d= new int[26];
+        int a=ransomNote.length();int b=magazine.length();
+        
+        if(a>b)
+	{f= false};
+        
+        for(int i=0;i<a;i++){
+        c[ransomNote.charAt(i) - 'a']++;}
+        
+        for(int i=0;i<b;i++){
+        d[magazine.charAt(i) - 'a']++;}
+        
+        for(int j=0;j<26;j++){
+            if(c[j]>d[j]){
+	f= false};
+        }
+        return f;
+        
+    }
+}
