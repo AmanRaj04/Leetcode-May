@@ -1,0 +1,18 @@
+/* You are here!
+Your runtime beats 10 % of java submissions.
+
+149 / 149 test cases passed.
+Runtime: 6 ms
+Memory Usage: 37.5 MB */
+
+class Solution {
+    public int findComplement(int num) {
+        
+        String s=Integer.toBinaryString(num);
+        s=s.replaceAll("1","2");
+        s=s.replaceAll("0","1");
+        s=s.replaceAll("2","0");
+        int decimal=Integer.parseInt(s,2);
+        return decimal;
+    }
+}
