@@ -1,0 +1,24 @@
+/* You are here!
+Your runtime beats 76.21 % of java submissions.
+
+104 / 104 test cases passed.
+Runtime: 8 ms
+Memory Usage:  39.4 MB */
+
+class Solution {
+    public int firstUniqChar(String s) {
+        
+        int[] element=new int[26];  //Array element is initially 0.
+        
+        for(int i=0;i<s.length();i++){
+            element[s.charAt(i) -'a']++; // index of array element is increased for each character in string s. 
+        }
+        
+        for(int j=0;j<s.length();j++){
+            if(element[s.charAt(j) -'a']==1)
+                return j;
+        }
+        return -1;
+        
+    }
+}
