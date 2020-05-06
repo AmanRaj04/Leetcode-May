@@ -1,0 +1,14 @@
+/* You are here!
+Your runtime beats 99.86 % of java submissions.
+
+46 / 46 test cases passed.
+Runtime: 1 ms
+Memory Usage:  42.6 MB */
+
+class Solution {
+    public int majorityElement(int[] nums) {
+        
+        Arrays.sort(nums);
+        return nums[nums.length/2];
+    }
+}
