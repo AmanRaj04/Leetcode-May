@@ -1,0 +1,32 @@
+/* You are here!
+Your runtime beats 100 % of java submissions.
+
+103 / 103 test cases passed.
+Runtime:  0ms
+Memory Usage:  37.3 MB */
+
+class Solution {
+         int dX=-1,dY=-1;
+    TreeNode pX,pY,pre;
+    public boolean isCousins(TreeNode root, int x, int y) {
+      dfs(root,x,y,0);
+      return dX==dY && pX!=pY;
+    }
+    public void dfs(TreeNode node, int x,int y, int depth){
+       if(node==null)
+           return;
+        if(node.val==x){
+            pX=pre;
+            dX=depth;
+            return;
+        }
+        else if(node.val==y){
+            pY=pre;
+            dY=depth;
+            return;
+        }
+        pre=node;
+        dfs(node.left,x,y,depth+1);
+        dfs(node.right,x,y,depth+1);
+    }
+}
