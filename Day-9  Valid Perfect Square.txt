@@ -1,0 +1,17 @@
+/* You are here!
+Your runtime beats 100 % of java submissions.
+
+68 / 68 test cases passed.
+Runtime:  0ms
+Memory Usage:  35.9 MB */
+
+class Solution {
+    public boolean isPerfectSquare(int num) {
+        
+        double rootd=(double)Math.sqrt(num);
+        double root=Math.floor(rootd);
+        if(rootd-root!=0)
+            return false;
+        return true;
+    }
+}
