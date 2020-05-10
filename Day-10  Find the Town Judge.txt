@@ -1,0 +1,27 @@
+/* You are here!
+Your runtime beats 80.15 % of java submissions.
+
+89 / 89 test cases passed.
+Runtime:  3ms
+Memory Usage:  47.2 MB */
+
+class Solution {
+    public int findJudge(int N, int[][] trust) {
+        
+        int[] vote=new int[N+1];
+        
+        if(N==1)
+            return 1;
+        
+        for(int[] p:trust){
+            vote[p[0]]--;
+            vote[p[1]]++;
+        }
+        
+        for(int i=0;i<N+1;i++){
+            if(vote[i]==N-1)
+                return i;
+        }
+        return -1;
+    }
+}
