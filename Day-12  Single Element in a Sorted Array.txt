@@ -1,5 +1,5 @@
 /* You are here!
-Your runtime beats 80.15 % of java submissions.
+Your runtime beats 100 % of java submissions.
 
 12 / 12 test cases passed.
 Runtime:  0ms
