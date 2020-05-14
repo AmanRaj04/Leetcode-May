@@ -1,0 +1,76 @@
+/* You are here!
+Your runtime beats 35.79 % of java submissions.
+
+15 / 15 test cases passed.
+Runtime:  39ms
+Memory Usage:  51.2 MB */
+
+class Trie {
+    private Node root;    
+    
+    public Trie() {
+        root = new Node('#');
+    }
+    
+    public void insert(String word) {
+        Node current = root;
+        for (int idx = 0; idx < word.length(); idx++) {
+            char value = word.charAt(idx);
+            current = current.getChild(value);
+        }
+        current.makeLeaf();
+    }
+    
+    public boolean search(String word) {
+        Node node = getIfExist(root, word);
+        return node != null && node.isLeaf();
+    }
+    
+    public boolean startsWith(String prefix) {
+        Node node = getIfExist(root, prefix);
+        return node != null;
+    }
+    
+    private Node getIfExist(Node current, String word) {
+        for (int idx = 0; idx < word.length(); idx++) {
+            char value = word.charAt(idx);
+            
+            if (!current.containsChild(value))
+                return null;
+            
+            current = current.getChild(value);
+        }
+        
+        return current;
+    }
+    
+    private static class Node {
+        char value;
+        boolean leaf;
+        Map<Character, Node> children;
+        
+        public Node(char value) {
+            this.value = value;
+            this.leaf = false;
+            children = new HashMap<>();
+        }
+        
+        public Node getChild(char value) {
+            if (!children.containsKey(value))
+                children.put(value, new Node(value));
+            return children.get(value);
+        }
+        
+        public void makeLeaf() {
+            this.leaf = true;
+        }
+        
+        public boolean isLeaf() {
+            return this.leaf;
+        }
+        
+        public boolean containsChild(char value) {
+            return children.containsKey(value);
+        }
+    }
+}
